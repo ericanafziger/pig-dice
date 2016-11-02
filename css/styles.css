@@ -8,10 +8,41 @@
   background-repeat: no-repeat;
   background-color: #000;
   height: 700px;
-  margin-top: 10%;
+  margin-top: 5%;
   border-radius: 15px;
+  border: 25px groove #873600;
+  padding-top: 10%;
+  text-align: center;
 }
 
 body {
   background-color: #1F1C1C;
+  font-family: 'Playfair Display SC', serif;
+}
+
+.diceWell {
+  height: 350px;
+  text-align: center;
+}
+
+.diceWell h2{
+  font-size: 3em;
+  margin-bottom: 10%;
+}
+
+.playerWell {
+  height: 220px;
+}
+h4 {
+  font-size: 5em;
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  font-weight: bold;
+}
+.btn {
+  margin-top: 2%;
+}
+p {
+  font-family: 'Roboto', sans-serif;
 }
