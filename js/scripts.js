@@ -23,6 +23,19 @@ return roll;
 $(document).ready(function() {
   var playerOne = new Player (0, 0);
   var playerTwo = new Player (0, 0);
+  var playerOneNameInput;
+  var playerTwoNameInput;
+  $(".buttonsPlayerOne").parent().addClass("chosen");
+
+  $("form").submit(function(event){
+    event.preventDefault();
+    playerOneNameInput = $("#playerOneName").val();
+    playerTwoNameInput = $("#playerTwoName").val();
+    $(".playerOneName").text(playerOneNameInput);
+    $(".playerTwoName").text(playerTwoNameInput);
+    $("#nameInputs").hide();
+    $(".hideIt").show();
+  });
 
 
   //player one buttons
@@ -37,6 +50,8 @@ $(document).ready(function() {
       $(".turnTotal1").text(playerOne.turnTotal);
       $(".buttonsPlayerOne").hide();
       $(".buttonsPlayerTwo").show();
+      $(".buttonsPlayerTwo").parent().addClass("chosen");
+      $(".buttonsPlayerOne").parent().removeClass("chosen");
     } else {
        playerOne.turnTotalAdd(newRoll);
        $(".turnTotal1").text(playerOne.turnTotal);
@@ -51,14 +66,19 @@ $(document).ready(function() {
     $(".turnTotal1").text(playerOne.turnTotal);
     $(".buttonsPlayerOne").hide();
     $(".buttonsPlayerTwo").show();
-    if (playerOne.total > 99) {
-      alert("Player One is Champion!");
+    $(".buttonsPlayerTwo").parent().addClass("chosen");
+    $(".buttonsPlayerOne").parent().removeClass("chosen");
+    if (playerOne.total > 20) {
       playerOne.total = 0;
       playerTwo.total = 0;
       $(".totalScore1").text(playerOne.total);
       $(".turnTotal1").text(playerOne.turnTotal);
       $(".totalScore2").text(playerTwo.total);
       $(".turnTotal2").text(playerTwo.turnTotal);
+      $(".hideIt").hide();
+      $("#winner").show();
+      $(".winnerName").text(playerOneNameInput);
+
     }
   });
 
@@ -73,6 +93,8 @@ $(document).ready(function() {
       $(".turnTotal2").text(playerTwo.turnTotal);
       $(".buttonsPlayerTwo").hide();
       $(".buttonsPlayerOne").show();
+      $(".buttonsPlayerOne").parent().addClass("chosen");
+      $(".buttonsPlayerTwo").parent().removeClass("chosen");
     } else {
        playerTwo.turnTotalAdd(newRoll);
        $(".turnTotal2").text(playerTwo.turnTotal);
@@ -87,14 +109,18 @@ $(document).ready(function() {
     $(".turnTotal2").text(playerTwo.turnTotal);
     $(".buttonsPlayerTwo").hide();
     $(".buttonsPlayerOne").show();
-    if (playerTwo.total > 99) {
-      alert("Player Two is Champion!");
+    $(".buttonsPlayerOne").parent().addClass("chosen");
+    $(".buttonsPlayerTwo").parent().removeClass("chosen");
+    if (playerTwo.total > 20) {
       playerOne.total = 0;
       playerTwo.total = 0;
       $(".totalScore1").text(playerOne.total);
       $(".turnTotal1").text(playerOne.turnTotal);
       $(".totalScore2").text(playerTwo.total);
       $(".turnTotal2").text(playerTwo.turnTotal);
+      $("#winner").show();
+      $(".hideIt").hide();
+      $(".winnerName").text(playerTwoNameInput);
     }
   });
 });
