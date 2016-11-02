@@ -1,4 +1,4 @@
-.buttonsPlayerTwo, #dice, .hideIt, #winner {
+.buttonsPlayerTwo, #dice, .hideIt, #winner, #nameInputs {
   display: none;
 }
 
@@ -49,4 +49,15 @@ p {
 
 .chosen {
   box-shadow: 5px 5px 25px #000;
+}
+
+#choosePlayers img {
+  max-height: 250px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.bigger {
+  padding: 25px;
 }

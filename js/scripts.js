@@ -19,15 +19,43 @@ var roll = Math.floor((Math.random()*6)+1);
 return roll;
 }
 
+////////// Front End! //////////////
+
+function resetFields() {
+  $("#playerOneName").val("");
+  $("#playerTwoName").val("");
+}
 
 $(document).ready(function() {
+  debugger;
   var playerOne = new Player (0, 0);
   var playerTwo = new Player (0, 0);
   var playerOneNameInput;
   var playerTwoNameInput;
+
+  var playerType = $("input:radio[name=playerType]:checked").val();
+
   $(".buttonsPlayerOne").parent().addClass("chosen");
 
-  $("form").submit(function(event){
+  $(".img-responsive").click(function(){
+      $(".img-responsive").removeClass('chosen');
+      $(this).addClass('chosen');
+      $(this).prop('checked', true);
+    });
+
+  $("form#whichOpponent").submit(function(event) {
+    event.preventDefault();
+    if (playerType === "1") {
+      $("#choosePlayers").hide();
+      $("#nameInputs").show();
+    } else if (playerType === "2") {
+      alert("Sorry, computer is busy at work; no playing right now!");
+      $("#choosePlayers").hide();
+      $("#nameInputs").show();
+    }
+  });
+
+  $("form#blanks").submit(function(event){
     event.preventDefault();
     playerOneNameInput = $("#playerOneName").val();
     playerTwoNameInput = $("#playerTwoName").val();
@@ -37,6 +65,16 @@ $(document).ready(function() {
     $(".hideIt").show();
   });
 
+$("#newPlayers").click(function() {
+  resetFields();
+  $("#winner").hide();
+  $("#nameInputs").show();
+});
+
+$("#playAgain").click(function() {
+  $("#winner").hide();
+  $(".hideIt").show();
+});
 
   //player one buttons
   $("#playerOneRoll").click(function() {
