@@ -14,6 +14,10 @@ Player.prototype.turnTotalAdd = function(roll) {
   this.turnTotal = this.turnTotal + roll;
 }
 
+Player.prototype.hold = function(hold) {
+  this.total += this.turnTotal;
+}
+
 function diceRoll(){
 var roll = Math.floor((Math.random()*6)+1);
 return roll;
@@ -29,25 +33,38 @@ $(document).ready(function() {
     var newRoll = diceRoll();
     $(".diceRoll").text(newRoll);
     if (newRoll === 1) {
-      playerOne.turnTotal = 0
+      playerOne.turnTotal = 0;
+      $(".turnTotal1").text(playerOne.turnTotal);
     } else {
       debugger;
        playerOne.turnTotalAdd(newRoll);
        $(".turnTotal1").text(playerOne.turnTotal);
-       alert
     }
   });
+  $("#playerOneHold").click(function() {
+    playerOne.hold();
+    playerOne.turnTotal = 0;
+    $(".totalScore1").text(playerOne.total);
+    $(".turnTotal1").text(playerOne.turnTotal);
+  });
+
   $("#playerTwoRoll").click(function() {
     debugger;
     var newRoll = diceRoll();
     $(".diceRoll").text(newRoll);
     if (newRoll === 1) {
-      playerTwo.turnTotal = 0
+      playerTwo.turnTotal = 0;
+      $(".turnTotal2").text(playerTwo.turnTotal);
     } else {
       debugger;
        playerTwo.turnTotalAdd(newRoll);
        $(".turnTotal2").text(playerTwo.turnTotal);
-       alert
     }
+  });
+  $("#playerTwoHold").click(function() {
+    playerTwo.hold();
+    playerTwo.turnTotal = 0;
+    $(".totalScore2").text(playerTwo.total);
+    $(".turnTotal2").text(playerTwo.turnTotal);
   });
 });
