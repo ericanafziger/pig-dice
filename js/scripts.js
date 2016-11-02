@@ -5,10 +5,6 @@ var Player = function(turnTotal, total) {
   this.total = total;
 }
 
-// var PlayerTwo = function(turnTotal, total) {
-//   this.turnTotal = turnTotal;
-//   this.total = total;
-// }
 Player.prototype.turnTotalAdd = function(roll) {
   debugger;
   this.turnTotal = this.turnTotal + roll;
@@ -33,6 +29,9 @@ $(document).ready(function() {
   $("#playerOneRoll").click(function() {
     var newRoll = diceRoll();
     $(".diceRoll").text(newRoll);
+    $("#dice").show();
+    $("#dice").html('<img src="img/d' + newRoll + '.gif">')
+
     if (newRoll === 1) {
       playerOne.turnTotal = 0;
       $(".turnTotal1").text(playerOne.turnTotal);
@@ -67,6 +66,8 @@ $(document).ready(function() {
   $("#playerTwoRoll").click(function() {
     var newRoll = diceRoll();
     $(".diceRoll").text(newRoll);
+    $("#dice").show();
+    $("#dice").html('<img src="img/d' + newRoll + '.gif">')
     if (newRoll === 1) {
       playerTwo.turnTotal = 0;
       $(".turnTotal2").text(playerTwo.turnTotal);
