@@ -50,6 +50,9 @@ p {
 .chosen {
   box-shadow: 5px 5px 25px #000;
 }
+#choosePlayers img:hover {
+  box-shadow: 5px 5px 25px #888;
+}
 
 #choosePlayers img {
   max-height: 250px;

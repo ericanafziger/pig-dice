@@ -1,12 +1,10 @@
 // Business End Logic
 var Player = function(turnTotal, total) {
-  debugger;
   this.turnTotal = turnTotal;
   this.total = total;
 }
 
 Player.prototype.turnTotalAdd = function(roll) {
-  debugger;
   this.turnTotal = this.turnTotal + roll;
 }
 
@@ -27,7 +25,7 @@ function resetFields() {
 }
 
 $(document).ready(function() {
-  debugger;
+
   var playerOne = new Player (0, 0);
   var playerTwo = new Player (0, 0);
   var playerOneNameInput;
@@ -40,7 +38,7 @@ $(document).ready(function() {
   $(".img-responsive").click(function(){
       $(".img-responsive").removeClass('chosen');
       $(this).addClass('chosen');
-      $(this).prop('checked', true);
+      this.parent().children().checked = true;
     });
 
   $("form#whichOpponent").submit(function(event) {
