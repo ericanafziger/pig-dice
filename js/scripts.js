@@ -28,6 +28,7 @@ $(document).ready(function() {
   var playerOne = new Player (0, 0);
   var playerTwo = new Player (0, 0);
 
+
   //player one buttons
   $("#playerOneRoll").click(function() {
     var newRoll = diceRoll();
@@ -51,6 +52,15 @@ $(document).ready(function() {
     $(".turnTotal1").text(playerOne.turnTotal);
     $(".buttonsPlayerOne").hide();
     $(".buttonsPlayerTwo").show();
+    if (playerOne.total > 99) {
+      alert("Player One is Champion!");
+      playerOne.total = 0;
+      playerTwo.total = 0;
+      $(".totalScore1").text(playerOne.total);
+      $(".turnTotal1").text(playerOne.turnTotal);
+      $(".totalScore2").text(playerTwo.total);
+      $(".turnTotal2").text(playerTwo.turnTotal);
+    }
   });
 
   //start of player two buttons
@@ -76,5 +86,14 @@ $(document).ready(function() {
     $(".turnTotal2").text(playerTwo.turnTotal);
     $(".buttonsPlayerTwo").hide();
     $(".buttonsPlayerOne").show();
+    if (playerTwo.total > 99) {
+      alert("Player Two is Champion!");
+      playerOne.total = 0;
+      playerTwo.total = 0;
+      $(".totalScore1").text(playerOne.total);
+      $(".turnTotal1").text(playerOne.turnTotal);
+      $(".totalScore2").text(playerTwo.total);
+      $(".turnTotal2").text(playerTwo.turnTotal);
+    }
   });
 });
