@@ -104,7 +104,7 @@ $("#playAgain").click(function() {
     $(".buttonsPlayerTwo").show();
     $(".buttonsPlayerTwo").parent().addClass("chosen");
     $(".buttonsPlayerOne").parent().removeClass("chosen");
-    if (playerOne.total > 20) {
+    if (playerOne.total > 99) {
       playerOne.total = 0;
       playerTwo.total = 0;
       $(".totalScore1").text(playerOne.total);
@@ -147,7 +147,7 @@ $("#playAgain").click(function() {
     $(".buttonsPlayerOne").show();
     $(".buttonsPlayerOne").parent().addClass("chosen");
     $(".buttonsPlayerTwo").parent().removeClass("chosen");
-    if (playerTwo.total > 20) {
+    if (playerTwo.total > 99) {
       playerOne.total = 0;
       playerTwo.total = 0;
       $(".totalScore1").text(playerOne.total);
